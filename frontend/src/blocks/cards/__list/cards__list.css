@@ -1,0 +1,16 @@
+.cards__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-template-rows: repeat(auto-fit, minmax(282px, 1fr));
+}
+
+@media screen and (min-width: 1280px) {
+  .cards__list {
+    gap: 17px;
+  }
+}

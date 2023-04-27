@@ -1,0 +1,12 @@
+.popup__response {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 25px 0 25px;
+}
+
+@media screen and (min-width: 890px) {
+  .popup__response {
+    margin: 34px 0 31px;
+  }
+}

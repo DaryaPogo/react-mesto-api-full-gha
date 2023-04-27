@@ -1,0 +1,26 @@
+.profile__submit {
+  width: 280px;
+  min-height: 50px;
+  background: url(../../../images/button__plus.svg) no-repeat center;
+  background-size: 16px 16px;
+  background-color: #000;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  margin-top: 32px;
+  transition: 0.2s linear;
+}
+
+.profile__submit:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 1280px) {
+  .profile__submit {
+    width: 150px;
+    align-self: center;
+    margin: 0 0 0 auto;
+    background-size: 22px 22px;
+  }  
+}
+

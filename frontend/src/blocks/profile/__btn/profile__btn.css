@@ -1,0 +1,26 @@
+.profile__btn {
+  background: #000;
+  border: none;
+}
+
+.profile__btn::after {
+  background: url(../../../images/button__pencil.svg) no-repeat center;
+  background-size: 26px 26px;
+  height: 120px;
+  transition: .3s linear;
+  display: block;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.profile__btn:hover::after {
+  opacity: 1;
+  z-index: 1;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+}

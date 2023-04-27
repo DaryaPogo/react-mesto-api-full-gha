@@ -1,0 +1,23 @@
+.profile__change {
+  background: url(../../../images/button__pencil.svg) no-repeat center;
+  background-size: 7.5px 7.5px;
+  height: 18px;
+  width: 18px;
+  border: 1px solid #FFFFFF;
+  transition: 0.2s linear;
+  margin: 0 19px 0 10px;
+}
+
+.profile__change:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 1280px) {
+  .profile__change {
+    width: 24px;
+    height: 24px;
+    background-size: 10px 10px;
+    margin-left: 0;
+  }
+}

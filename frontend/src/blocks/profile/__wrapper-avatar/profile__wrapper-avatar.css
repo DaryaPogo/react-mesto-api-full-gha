@@ -1,0 +1,11 @@
+.profile__wrapper-avatar {
+  position: relative;
+  align-items: center;
+  display: flex;
+}
+
+@media screen and (min-width: 1280px) {
+  .profile__wrapper-avatar {
+    align-items: flex-start;
+  }
+}

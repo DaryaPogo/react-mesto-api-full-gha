@@ -1,0 +1,9 @@
+.card__name {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 282px;
+  min-height: 79px;
+}
+

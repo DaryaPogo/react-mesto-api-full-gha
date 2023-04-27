@@ -1,0 +1,11 @@
+.card__image {
+  display: block;
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  background-size: cover;
+}
+
+.card__image:hover {
+  cursor: pointer;
+}
