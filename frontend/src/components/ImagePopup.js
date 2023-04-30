@@ -9,8 +9,8 @@ export const ImagePopup = (props) => {
           type="button"
           onClick={onClose}
         ></button>
-        <img className="popup__image" src={card.link} alt={card.name} />
-        <h3 className="popup__image-text">{card.name}</h3>
+        {/* <img className="popup__image" src={card.link} alt={card.name} /> */}
+        {/* <h3 className="popup__image-text">{card.name}</h3> */}
       </div>
     </section>
   );
