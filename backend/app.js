@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookiesParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const { celebrate, Joi, Segments } = require('celebrate');
+const cors = require('cors');
 
 const { autotorization } = require('./middlewares/auth');
 const userRouter = require('./routes/users');
@@ -16,6 +17,7 @@ const {
 
 const app = express();
 const PORT = 3000;
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(cookiesParser());

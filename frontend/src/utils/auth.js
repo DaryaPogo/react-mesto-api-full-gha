@@ -1,4 +1,4 @@
-const BaseURL = "https://auth.nomoreparties.co";
+const BaseURL = "https://api.dashapogo.mesto.nomoredomains.monster";
 
 function getResponse(res) {
   if (res.ok) {
