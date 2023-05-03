@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -19,7 +20,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const app = express();
 const PORT = 3000;
 app.use(cors({
-  origin: ['https://api.dashapogo.mesto.nomoredomains.monster', 'https://dashapogo.mesto.nomoredomains.monster'],
+  // origin: ['https://api.dashapogo.mesto.nomoredomains.monster', 'https://dashapogo.mesto.nomoredomains.monster'],
+  origin: ['http://localhost:3000', 'http://localhost:3000'],
   credentials: true,
 }));
 
