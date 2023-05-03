@@ -8,6 +8,5 @@ export const formValidationSelectors = {
 };
 
 export const apiConfig = {
-  // adress: 'https://api.dashapogo.mesto.nomoredomains.monster'
-  adress: 'http://localhost:3000'
+  adress: 'https://api.dashapogo.mesto.nomoredomains.monster'
 };
