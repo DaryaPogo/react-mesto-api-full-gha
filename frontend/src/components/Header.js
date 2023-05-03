@@ -10,17 +10,17 @@ function Header(props) {
 
       <Routes>
         <Route
-          path="sign-up"
+          path="signup"
           element={
-            <Link to="/sign-in" className="header__link">
+            <Link to="/signin" className="header__link">
               Войти
             </Link>
           }
         />
         <Route
-          path="sign-in"
+          path="signin"
           element={
-            <Link to="/sign-up" className="header__link">
+            <Link to="/signup" className="header__link">
               Регистрация
             </Link>
           }
@@ -32,7 +32,7 @@ function Header(props) {
               <p className="header__email">{email}</p>
               <Link
                 onClick={onSubmit}
-                to="/sign-in"
+                to="/signin"
                 className="header__link header__link_grey"
               >
                 Выйти

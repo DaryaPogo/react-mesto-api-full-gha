@@ -8,8 +8,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 51.250.15.136
 
-Frontend https://...
+Frontend https://dashapogo.mesto.nomoredomains.monster
 
-Backend https://...
+Backend https://api.dashapogo.mesto.nomoredomains.monster

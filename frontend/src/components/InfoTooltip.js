@@ -6,8 +6,8 @@ export const InfoTooltip = (props) => {
   const { isOpen, onClose, status } = props;
   const text =
     status === false
-      ? "Вы успешно зарегистрировались!"
-      : "Что-то пошло не так! Попробуйте ещё раз.";
+      ? "Что-то пошло не так! Попробуйте ещё раз."
+      : "Вы успешно зарегистрировались!";
   const path = status === "err" ? err : union;
   return (
     <section className={`popup popup__white + ${isOpen ? "popup_opened" : ""}`}>

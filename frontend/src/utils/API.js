@@ -2,8 +2,7 @@ import { apiConfig } from "../utils/utils";
 
 export class API {
   constructor(config) {
-    this.headers = config.headers;
-    this.baseUrl = config.baseUrl;
+    this.baseUrl = config.adress;
   }
 
   _getResponse(res) {
@@ -16,21 +15,22 @@ export class API {
   getInfo() {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
-      headers: this.headers,
+      credentials: "include",
     }).then(this._getResponse);
   }
 
   getCards() {
     return fetch(`${this.baseUrl}/cards`, {
       method: "GET",
-      headers: this.headers,
+      credentials: "include",
     }).then(this._getResponse);
   }
 
   editProfile(data) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this.headers,
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: data.name,
         about: data.about,
@@ -41,7 +41,8 @@ export class API {
   addNewCard({ place, link }) {
     return fetch(`${this.baseUrl}/cards`, {
       method: "POST",
-      headers: this.headers,
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: place,
         link: link,
@@ -52,7 +53,7 @@ export class API {
   deleteCard(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}`, {
       method: "DELETE",
-      headers: this.headers,
+      credentials: "include",
     }).then(this._getResponse);
   }
 
@@ -60,12 +61,14 @@ export class API {
     if (isLiked) {
       return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
         method: "PUT",
-        headers: this.headers,
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
       }).then(this._getResponse);
     } else {
       return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
         method: "DELETE",
-        headers: this.headers,
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
       }).then(this._getResponse);
     }
   }
@@ -73,7 +76,8 @@ export class API {
   changeAvatar({ avatar }) {
     return fetch(`${this.baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this.headers,
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         avatar: avatar,
       }),

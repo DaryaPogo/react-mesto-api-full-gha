@@ -14,13 +14,22 @@ const {
   login,
   createUser,
 } = require('./controllers/users');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 const PORT = 3000;
-app.use(cors());
+app.use(cors({ origin: ['https://api.dashapogo.mesto.nomoredomains.monster', 'https://dashapogo.mesto.nomoredomains.monster'], credentials: true }));
 
 app.use(bodyParser.json());
 app.use(cookiesParser());
+
+app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signin', celebrate({
   [Segments.BODY]: Joi.object().keys({
@@ -60,6 +69,7 @@ app.use('/cards', cardsRouter);
 app.use('*', (req, res, next) => {
   next(new NotFoundError('Page not found'));
 });
+app.use(errorLogger);
 
 app.use(errors());
 

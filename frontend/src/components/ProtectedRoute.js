@@ -4,7 +4,7 @@ export const ProtectedRoute = (props) => {
   const { loggedIn, children } = props;
 
   if (!loggedIn) {
-    return <Navigate to="/sign-in" replace />;
+    return <Navigate to="/signin" replace />;
   }
   return children? children : <Outlet />;
 };

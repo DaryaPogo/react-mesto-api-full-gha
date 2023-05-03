@@ -36,13 +36,17 @@ function App() {
     selectedCard;
 
   useEffect(() => {
+    const loggedIn = localStorage.getItem("userId") 
     if (loggedIn) {
       api
         .getInfo()
         .then((currentUser) => {
           setCurrentUser(currentUser);
         })
-        .catch((err) => console.log(err));
+        .catch((err) =>{
+          localStorage.removeItem("userId")
+          console.log(err)
+        });
       api
         .getCards()
         .then((cards) => {
@@ -90,13 +94,14 @@ function App() {
   }, [isOpen]);
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
           state.map((c) => (c._id === card._id ? newCard : c))
         );
+
       })
       .catch((err) => console.log(err));
   }
@@ -160,8 +165,8 @@ function App() {
   function handleLogin(data) {
     return login(data)
       .then((res) => {
-        if (res.token) {
-          localStorage.setItem("jwt", res.token);
+        if (res._id) {
+          localStorage.setItem("userId", res._id);
           navigate("/");
           setLoggedIn(true);
           setEmail(data.email);
@@ -174,19 +179,19 @@ function App() {
   }
 
   function handleSignout(token) {
-    localStorage.removeItem("jwt", token);
+    localStorage.removeItem("userId", token);
     navigate("/sing-up");
     setLoggedIn(false);
     setEmail("");
   }
 
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
+    const jwt = localStorage.getItem("userId");
     if (jwt) {
       checkToken(jwt)
         .then((res) => {
           setLoggedIn(true);
-          setEmail(res.data.email);
+          setEmail(res.email);
           navigate("/");
         })
         .catch((err) => console.log(err));
@@ -198,10 +203,10 @@ function App() {
       <Header onSubmit={handleSignout} email={email} />
       <Routes>
         <Route
-          path="/sign-up"
+          path="/signup"
           element={<Register onSubmit={handleRegister} />}
         />
-        <Route path="/sign-in" element={<Login onSubmit={handleLogin} />} />
+        <Route path="/signin" element={<Login onSubmit={handleLogin} />} />
 
         <Route element={<ProtectedRoute loggedIn={loggedIn} />}>
           <Route
