@@ -1,5 +1,5 @@
-const BaseURL = "https://api.dashapogo.mesto.nomoredomains.monster";
-
+// const BaseURL = "https://api.dashapogo.mesto.nomoredomains.monster";
+const BaseURL = 'http://localhost:3000';
 function getResponse(res) {
   if (res.ok) {
     return res.json();

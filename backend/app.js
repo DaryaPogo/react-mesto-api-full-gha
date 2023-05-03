@@ -15,10 +15,15 @@ const {
   createUser,
 } = require('./controllers/users');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+// const { http } = require('winston');
 
 const app = express();
 const PORT = 3000;
-app.use(cors({ origin: ['https://api.dashapogo.mesto.nomoredomains.monster', 'https://dashapogo.mesto.nomoredomains.monster'], credentials: true }));
+app.use(cors({
+  // origin: ['https://api.dashapogo.mesto.nomoredomains.monster', 'https://dashapogo.mesto.nomoredomains.monster'],
+  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  credentials: true,
+}));
 
 app.use(bodyParser.json());
 app.use(cookiesParser());
