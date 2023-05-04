@@ -21,6 +21,7 @@ const app = express();
 const PORT = 3000;
 app.use(cors({
   origin: ['https://api.dashapogo.mesto.nomoredomains.monster', 'https://dashapogo.mesto.nomoredomains.monster'],
+  // origin: ['http://localhost:3000', 'http://localhost:3001'],
   credentials: true,
 }));
 
