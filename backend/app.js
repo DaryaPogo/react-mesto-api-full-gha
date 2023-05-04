@@ -20,8 +20,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const app = express();
 const PORT = 3000;
 app.use(cors({
-  // origin: ['https://api.dashapogo.mesto.nomoredomains.monster', 'https://dashapogo.mesto.nomoredomains.monster'],
-  origin: ['http://localhost:3000', 'http://localhost:3000'],
+  origin: ['https://api.dashapogo.mesto.nomoredomains.monster', 'https://dashapogo.mesto.nomoredomains.monster'],
   credentials: true,
 }));
 
