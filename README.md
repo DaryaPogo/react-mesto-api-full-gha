@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес  51.250.15.136 
+IP 51.250.15.136 
 
 Frontend https://dashapogo.mesto.nomoredomains.monster
 
