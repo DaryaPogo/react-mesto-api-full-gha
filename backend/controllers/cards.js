@@ -58,12 +58,10 @@ const likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
+    .orFail(() => new NotFoundError('Нет карточки с таким id'))
+    .then((newCard) => newCard.populate('owner'))
     .then((card) => {
-      if (!card) {
-        next(new NotFoundError('Нет карточки с таким id'));
-      } else {
-        res.status(SUCSESS).send(card);
-      }
+      res.status(SUCSESS).send(card);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
